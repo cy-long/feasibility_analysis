@@ -36,7 +36,6 @@ feasibility_community <- function(matA, nt = 30, raw = TRUE) {
     Omega_raw <- omega(S, Sigma)
 
     if (is.nan(Omega_raw)) {
-      message("perturbing interaction matrix in feasibility_community")
       matAp <- matA + runif(S * S, min = -1e-8, max = 1e-8)
       Sigma <- solve(t(matAp) %*% matAp)
       Omega_raw <- omega(S, Sigma)
